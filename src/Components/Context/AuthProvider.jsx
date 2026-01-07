@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import {
   createUserWithEmailAndPassword,
-  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   sendEmailVerification,
@@ -15,84 +14,68 @@ import {
 import { auth } from "../Firebase/firebase.config";
 
 const googleProvider = new GoogleAuthProvider();
-const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  console.log(auth);
-
-  const createUserWithEmailAndPasswordFunc = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
-  };
-
-  const updateProfileFunc = (displayName, photoURL) => {
-    return updateProfile(auth.currentUser, {
-      displayName,
-      photoURL,
-    });
-  };
-
-  const sendEmailVerificationFunc = () => {
+  // Auth functions
+  const createUser = (email, password) => {
     setLoading(true);
-    return sendEmailVerification(auth.currentUser);
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signInWithEmailAndPasswordFunc = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+
   const signInWithEmailFunc = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
-  const signInWithGithubFunc = () => {
-    setLoading(true);
-    return signInWithPopup(auth, githubProvider);
-  };
 
-  const signoutUserFunc = () => {
+  const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
-  const sendPassResetEmailFunc = (email) => {
+
+  const resetPassword = (email) => {
     setLoading(true);
     return sendPasswordResetEmail(auth, email);
   };
 
-  const authInfo = {
-    user,
-    setUser,
-    createUserWithEmailAndPasswordFunc,
-    signInWithEmailAndPasswordFunc,
-    signInWithEmailFunc,
-    signInWithGithubFunc,
-    signoutUserFunc,
-    sendPassResetEmailFunc,
-    sendEmailVerificationFunc,
-    updateProfileFunc,
-    loading,
-    setLoading,
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, { displayName: name, photoURL: photo });
   };
 
+  const verifyEmail = () => {
+    return sendEmailVerification(auth.currentUser);
+  };
+
+  // Auth observer
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currUser) => {
-      console.log(currUser);
-      setUser(currUser);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
       setLoading(false);
     });
-
-    return () => {
-      unsubscribe();
-    };
+    return () => unsubscribe();
   }, []);
 
-  return (
-    <AuthContext.Provider value={authInfo}>
-        {children}
-    </AuthContext.Provider>
-);
+  const authInfo = {
+    user,
+    loading,
+    setLoading,
+    createUser,
+    signInWithEmailAndPasswordFunc,
+    signInWithEmailFunc,
+    logOut,
+    resetPassword,
+    updateUserProfile,
+    verifyEmail,
+  };
+
+  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

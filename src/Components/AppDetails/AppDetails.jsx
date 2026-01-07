@@ -18,6 +18,7 @@ const AppDetails = () => {
     return (
         <div className="min-h-screen bg-[#0b0f1a] pt-24 pb-12 px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
+              
                 <button 
                     onClick={() => navigate(-1)} 
                     className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors mb-8 group"
