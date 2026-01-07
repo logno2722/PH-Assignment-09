@@ -24,10 +24,7 @@ const MyProfile = () => {
                                     src={user?.photoURL || "https://i.pravatar.cc/150"}
                                     alt="Profile"
                                     className="relative w-40 h-40 rounded-full border-4 border-[#0b0f1a] object-cover shadow-2xl"
-                                />
-                                <button className="absolute bottom-2 right-2 bg-cyan-400 p-3 rounded-full text-black hover:bg-white transition-colors shadow-lg">
-                                    <FaUserEdit size={18} />
-                                </button>
+                                />                                
                             </div>
 
                             {/* User Info */}
@@ -70,7 +67,7 @@ const MyProfile = () => {
                         <div className="mt-12 flex flex-col sm:flex-row gap-4">
                             <Link
                                 to="/update-profile"
-                                className="flex-1 bg-cyan-400 hover:bg-cyan-500 text-black font-black py-4 rounded-2xl transition-all shadow-lg shadow-cyan-400/20 active:scale-95 uppercase tracking-widest text-center"
+                                className="flex-1 bg-cyan-400 hover:bg-cyan-500 text-gray font-black py-4 rounded-2xl transition-all shadow-lg shadow-cyan-400/20 active:scale-95 uppercase tracking-widest text-center"
                             >
                                 Update Profile
                             </Link>

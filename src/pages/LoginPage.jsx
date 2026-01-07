@@ -62,7 +62,7 @@ const LoginPage = () => {
             </Link>
           </div>
 
-          <button className="w-full bg-cyan-400 hover:bg-cyan-500 text-black font-black py-3 rounded-xl transition-all">
+          <button className="w-full bg-cyan-500 hover:bg-cyan-500 text-gray font-black py-3 rounded-xl transition-all">
             SIGN IN
           </button>
         </form>

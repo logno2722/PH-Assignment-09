@@ -63,7 +63,7 @@ const Register = () => {
                     <input name="email" type="email" placeholder="Email Address" className="w-full bg-black/40 border border-white/10 rounded-2xl px-5 py-3.5 text-white focus:border-cyan-500 outline-none transition-all" required />
                     <input name="password" type="password" placeholder="Password" className="w-full bg-black/40 border border-white/10 rounded-2xl px-5 py-3.5 text-white focus:border-cyan-500 outline-none transition-all" required />
                     
-                    <button type="submit" className="w-full bg-cyan-400 hover:bg-cyan-500 text-black font-black py-4 rounded-2xl transition-all shadow-lg shadow-cyan-400/20 uppercase tracking-widest active:scale-95">
+                    <button type="submit" className="w-full bg-cyan-400 hover:bg-cyan-500 text-gray font-black py-4 rounded-2xl transition-all shadow-lg shadow-cyan-400/20 uppercase tracking-widest active:scale-95">
                         REGISTER NOW
                     </button>
                 </form>

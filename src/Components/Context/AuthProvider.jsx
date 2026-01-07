@@ -19,7 +19,6 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Auth functions
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -45,15 +44,21 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
-  const updateUserProfile = (name, photo) => {
-    return updateProfile(auth.currentUser, { displayName: name, photoURL: photo });
+  // ✅ FIXED function
+  const updateUserProfile = async (name, photo) => {
+    await updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+
+    // Force UI update
+    setUser({ ...auth.currentUser });
   };
 
   const verifyEmail = () => {
     return sendEmailVerification(auth.currentUser);
   };
 
-  // Auth observer
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -75,7 +80,11 @@ const AuthProvider = ({ children }) => {
     verifyEmail,
   };
 
-  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={authInfo}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

@@ -40,7 +40,7 @@ const Banner = () => {
   }, [currentIndex, slides.length]);
 
   return (
-    <div className="flex flex-col items-center mt-5 px-4">
+    <div className="flex flex-col items-center  px-4">
       <div className="group relative w-full md:w-4/5 h-[350px] md:h-[500px] overflow-hidden rounded-3xl shadow-2xl bg-gray-900">
         
         {slides.map((slide, index) => (

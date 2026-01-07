@@ -50,7 +50,7 @@ const Newsletter = () => {
                         />
                         <button 
                             type="submit"
-                            className="bg-cyan-400 hover:bg-cyan-500 text-black font-black px-8 py-4 rounded-2xl transition-all active:scale-95 shadow-lg shadow-cyan-400/20 uppercase tracking-widest"
+                            className="bg-cyan-400 hover:bg-cyan-500 text-gray font-black px-8 py-4 rounded-2xl transition-all active:scale-95 shadow-lg shadow-cyan-400/20 "
                         >
                             SUBSCRIBE
                         </button>
