@@ -1,0 +1,33 @@
+[
+  {
+    "id": "1",
+    "title": "Valorant",
+    "coverPhoto": "/assets/valorant.jpg",
+    "category": "FPS",
+    "downloadLink": "https://playvalorant.com/en-us/download/",
+    "description": "Valorant is a tactical first-person shooter that combines precise gunplay with unique agent abilities in competitive matches.",
+    "ratings": "4.7",
+    "developer": "Riot Games"
+  },
+  {
+    "id": "2",
+    "title": "Space War",
+    "coverPhoto": "/assets/spaceWar.jpg",
+    "category": "Action",
+    "downloadLink": "https://www.amazon.co.uk/Virtual-GS-Space-War/dp/B004IJIE98",
+    "description": "Space War is an action-packed arcade shooting game where players battle enemies across the galaxy using powerful spacecraft.",
+    "ratings": "4.3",
+    "developer": "Indie Studio"
+  }
+  ,
+  {
+    "id": "3",
+    "title": "Player Unknowns Battle Ground: PUBG",
+    "coverPhoto": "/assets/pubg.jpg",
+    "category": "Battle Royale",
+    "downloadLink": "https://play.google.com/store/apps/details?id=com.tencent.ig&hl=en",
+    "description": "PUBG Mobile is a fast-paced battle royale game where players fight for survival, strategy, and victory on large dynamic maps.",
+    "ratings": "4.5",
+    "developer": "Krafton"
+  }
+]
