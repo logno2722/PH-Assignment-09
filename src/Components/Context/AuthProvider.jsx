@@ -44,18 +44,15 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
-  // ✅ FIXED function
   const updateUserProfile = async (name, photo) => {
-    await updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
-    });
+    if (!auth.currentUser) return;
 
-    // Force UI update
+    await updateProfile(auth.currentUser, { displayName: name, photoURL: photo });
     setUser({ ...auth.currentUser });
   };
 
   const verifyEmail = () => {
+    if (!auth.currentUser) return;
     return sendEmailVerification(auth.currentUser);
   };
 
@@ -69,6 +66,7 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    setUser,
     loading,
     setLoading,
     createUser,
@@ -80,11 +78,7 @@ const AuthProvider = ({ children }) => {
     verifyEmail,
   };
 
-  return (
-    <AuthContext.Provider value={authInfo}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;
