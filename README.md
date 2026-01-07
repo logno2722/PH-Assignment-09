@@ -3,7 +3,7 @@
 GameHub is a modern gaming platform where users can explore game details, manage their profiles, and stay connected with the gaming community. This is a React-based web application secured with Firebase Authentication.
 
 **Live URL:**  
-[https://animated-parfait-d0aae7.netlify.app/profile]
+https://animated-parfait-d0aae7.netlify.app/profile
 
 ---
 
