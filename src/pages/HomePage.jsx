@@ -8,7 +8,7 @@ const HomePage = () => {
         <div className="bg-[#0b0f1a] min-h-screen">
             <Banner />
             <Apps />
-            <Newsletter />
+           
         </div>
     );
 };

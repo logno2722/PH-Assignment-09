@@ -1,10 +1,11 @@
 import React from 'react';
-import { useLoaderData, Link } from 'react-router';
+import { useLoaderData, Link } from 'react-router'; 
 import PerApp from './PerApp';
 import { FaArrowRight } from "react-icons/fa6";
 
 const Apps = () => {
     const allApps = useLoaderData();
+
     const sortedApps = allApps ? [...allApps]
         .sort((a, b) => parseFloat(b.ratings) - parseFloat(a.ratings))
         .slice(0, 6) 
@@ -17,6 +18,7 @@ const Apps = () => {
                     <h2 className="text-white text-3xl md:text-4xl font-extrabold tracking-tight">
                         Top Rated <span className="text-cyan-400">Games</span>
                     </h2>
+                    
 
                 </div>
 

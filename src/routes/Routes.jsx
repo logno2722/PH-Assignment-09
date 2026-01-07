@@ -1,6 +1,10 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/HomePage";
+import AppDetails from "../Components/AppDetails/AppDetails";
+import Games from "../pages/Games";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
+import AppNotFound from "../Components/Error Page/AppNotFound";
 
 export const router = createBrowserRouter([
     {
@@ -19,29 +23,9 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><AppDetails /></PrivateRoute>
             },
             {
-                path: 'login',
-                element: <LoginPage />
-            },
-            {
-                path: 'register',
-                element: <Register />
-            },
-            {
-                path: 'profile',
-                element: <MyProfile />
-            },
-            {
                 path: 'games',
                 loader: () => fetch('/AppData.json'),
                 element: <Games />
-            },
-            {
-                path: 'update-profile',
-                element: <UpdateProfilePage />
-            },
-            {
-                path: "*",
-                element: <AppNotFound />
             }
         ]
     }
